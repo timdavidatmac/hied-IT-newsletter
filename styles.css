@@ -34,6 +34,7 @@ img { max-width: 100%; display: block; }
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   min-height: 56px;
@@ -47,8 +48,34 @@ img { max-width: 100%; display: block; }
   white-space: nowrap;
   text-decoration: none;
   letter-spacing: -0.01em;
+  flex-shrink: 1;
+  min-width: 0;
 }
 .site-header-logo:hover { text-decoration: none; color: #ffffff; }
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.site-nav li a {
+  display: block;
+  padding: 18px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ababab;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.15s;
+}
+.site-nav li a:hover,
+.site-nav li a.active { color: #ffffff; text-decoration: none; }
 
 /* ── Site Footer ──────────────────────────────────────────── */
 .site-footer {
