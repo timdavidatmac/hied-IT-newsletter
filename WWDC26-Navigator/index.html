@@ -137,7 +137,10 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
   <div id="results" role="listbox" aria-label="Search results"></div>
 
   <div id="player-wrap">
-    <div id="yt-player"></div>
+    <iframe id="yt-iframe"
+      src="https://www.youtube.com/embed/hF8swzNR1-o?rel=0&modestbranding=1&playsinline=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
   </div>
 
 </div>
@@ -373,24 +376,34 @@ function parseRTF(raw) {
   return entries;
 }
 
-// ── YouTube IFrame API ───────────────────────────────────────────────
+// ── YouTube IFrame API (enhancement — plain iframe always works first) ──
 window.onYouTubeIframeAPIReady = function() {
-  player = new YT.Player('yt-player', {
-    videoId: VIDS[curVid].ytId,
-    playerVars: { autoplay:0, rel:0, modestbranding:1, playsinline:1 },
-    events: {
-      onReady() {
-        playerReady = true;
-        if (pendingSeek !== null) { seekTo(pendingSeek); pendingSeek = null; }
+  try {
+    player = new YT.Player('yt-iframe', {
+      events: {
+        onReady() {
+          playerReady = true;
+          if (pendingSeek !== null) { seekTo(pendingSeek); pendingSeek = null; }
+        },
       },
-    },
-  });
+    });
+  } catch(e) { /* API unavailable; fallback iframe seek handles navigation */ }
 };
 
+function iframeSrc(ytId, startSec) {
+  const s = startSec ? `&start=${startSec}&autoplay=1` : '';
+  return `https://www.youtube.com/embed/${ytId}?rel=0&modestbranding=1&playsinline=1${s}`;
+}
+
 function seekTo(sec) {
-  if (!player || !playerReady) { pendingSeek = sec; return; }
-  player.seekTo(sec, true);
-  player.playVideo();
+  if (player && playerReady) {
+    player.seekTo(sec, true);
+    player.playVideo();
+  } else {
+    // Fallback: reload iframe with start= (works from file:// and any HTTP context)
+    const iframe = document.getElementById('yt-iframe');
+    if (iframe) iframe.src = iframeSrc(VIDS[curVid].ytId, sec);
+  }
 }
 
 // ── UI ───────────────────────────────────────────────────────────────
@@ -421,8 +434,11 @@ function switchVid(key) {
     b.classList.toggle('active', b.dataset.vid === key));
   buildDropdowns();
   clearResults();
+  const iframe = document.getElementById('yt-iframe');
   if (player && playerReady) {
     player.cueVideoById(VIDS[key].ytId);
+  } else if (iframe) {
+    iframe.src = iframeSrc(VIDS[key].ytId);
   }
 }
 
@@ -439,8 +455,12 @@ function runSearch(q) {
 
   if (!q || q.length < 2) { panel.classList.remove('on'); panel.innerHTML = ''; return; }
 
-  if (!vid.data) {
-    panel.innerHTML = '<div class="r-count">Transcripts still loading — try again in a moment.</div>';
+  if (!vid.data || vid.data.length === 0) {
+    const isFile = location.protocol === 'file:';
+    const msg = isFile
+      ? 'Search requires an HTTP server. Topic and speaker navigation still work — or host this on GitHub Pages for full search.'
+      : 'Transcripts still loading — try again in a moment.';
+    panel.innerHTML = `<div class="r-count">${msg}</div>`;
     panel.classList.add('on'); return;
   }
 
