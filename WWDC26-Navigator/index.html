@@ -104,9 +104,10 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
   #nav { height: auto; flex-wrap: wrap; padding: 5px 8px; gap: 5px; row-gap: 5px; }
   #vid-tabs { order: 0; }
   #loading-badge { order: 1; margin-left: auto; }
-  #topic-sel { order: 2; flex: 1; max-width: calc(50% - 3px); }
-  #spkr-sel  { order: 3; flex: 1; max-width: calc(50% - 3px); }
-  #srch-wrap { order: 4; max-width: none; flex: 100%; }
+  #topic-sel  { order: 2; flex: 1; max-width: calc(50% - 3px); }
+  #spkr-sel   { order: 3; flex: 1; max-width: calc(50% - 3px); }
+  #spkr2-sel  { order: 4; flex: 100%; max-width: none; }
+  #srch-wrap  { order: 5; max-width: none; flex: 100%; }
   .sep { display: none; }
 }
 </style>
@@ -125,6 +126,9 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
     </select>
     <select id="spkr-sel" class="nav-sel">
       <option value="">By speaker…</option>
+    </select>
+    <select id="spkr2-sel" class="nav-sel" style="display:none">
+      <option value="">Choose appearance…</option>
     </select>
     <div class="sep"></div>
     <div id="srch-wrap">
@@ -150,144 +154,129 @@ html, body { height: 100%; background: var(--bg); color: var(--text);
 const VIDS = {
   keynote: {
     ytId: 'hF8swzNR1-o',
-    file: 'Apple WWDC 2026 Keynote transcript.txt',
-    fmt: 'keynote',
+    file: 'keynote-transcript.json',
     topics: [
-      [27,  'Introduction'],
-      [257, 'macOS Golden Gate'],
-      [304, 'Platform Improvements Overview'],
-      [405, 'Liquid Glass: Design Refinements'],
-      [460, 'Liquid Glass: Customization Slider'],
-      [580, 'Performance Improvements Overview'],
-      [623, 'App Launch Speed — 30% Faster'],
-      [688, 'CPU Scheduler (iPhone 11 and later)'],
-      [785, 'AirDrop Speed — 80% Faster'],
-      [813, 'Search: Spotlight / Photos / Mail Rebuilt'],
-      [941, 'AirPods Custom EQ'],
-      [949, 'Apple Vision Pro: Spatial Panoramas'],
-      [972, 'Maps: Flyover Upgrade'],
-      [1020,'Trust & Safety'],
-      [1058,'Child Safety Features'],
-      [1152,'Child Account & Age-Based Protections'],
-      [1301,'App Store: Ask to Buy'],
-      [1332,'Safari: Ask to Browse'],
-      [1367,'Communication Safety (Violence/Gore)'],
-      [1410,'Screen Time: Time Allowances'],
-      [1507,'Screen Time: Schedules'],
-      [1560,'Screen Time Redesign'],
-      [1673,'Apple Intelligence Architecture'],
-      [1770,'Apple Foundation Models (with Google Gemini)'],
-      [1791,'Private Cloud Compute'],
-      [1914,'App Actions & On-Screen Awareness'],
-      [2006,'Siri AI Introduction'],
-      [2115,'Siri: World Knowledge Demo'],
-      [2165,'Siri: Personal Context (Photos & Contacts)'],
-      [2277,'Siri: New Expressive Voice'],
-      [2302,'Siri: System-Wide Dictation Upgrade'],
-      [2355,'Siri AI: Rich Conversations (iOS)'],
-      [2508,'Siri: Spotlight Integration on Mac'],
-      [2765,'Siri App (Cross-Device History)'],
-      [2796,'Siri on watchOS & visionOS'],
-      [2835,'Visual Intelligence — Siri Camera Mode'],
-      [2882,'Visual Intelligence: Split Bill, Nutrition'],
-      [2922,'Visual Intelligence on Mac (Screenshot)'],
-      [2959,'Visual Intelligence on iPad & visionOS'],
-      [2987,'Writing Tools with Siri'],
-      [3052,'Siri AI: Summary & Availability'],
-      [3112,'Safari: AI Tab Organization'],
-      [3208,'Safari: Notify Me'],
-      [3261,'Safari: Describe an Extension'],
-      [3277,'Passwords: Auto-Update Weak Passwords'],
-      [3320,'Messages: Smart Suggestions'],
-      [3367,'Calendar: Natural Language Events'],
-      [3389,'Phone App: Call Context'],
-      [3444,'Home App: Camera Intelligence & 4K'],
-      [3530,'Shortcuts: Natural Language Creation'],
-      [3617,'Image Playground (Photorealistic Generation)'],
-      [3744,'Photos AI Overview'],
-      [3795,'Photos: Clean Up Tool Upgrade'],
-      [3821,'Photos: Extend Tool'],
-      [3845,'Photos: Spatial Reframing'],
-      [4131,'Developers: App Intents & Siri Integration'],
-      [4143,'Foundation Models Framework (Developers)'],
-      [4219,'Core AI Framework'],
-      [4252,'Xcode: Agentic Coding Updates'],
-      [4281,'Device Hub'],
-      [4326,'Tim Cook — Closing'],
+      [27,   'Introduction'],
+      [257,  'macOS Golden Gate'],
+      [304,  'Platform Improvements'],
+      [405,  'Liquid Glass'],
+      [580,  'Performance'],
+      [813,  'Search'],
+      [941,  'AirPods'],
+      [949,  'Apple Vision Pro'],
+      [972,  'Maps'],
+      [1020, 'Trust & Safety'],
+      [1058, 'Child Safety'],
+      [1301, 'App Store — Ask to Buy'],
+      [1332, 'Safari — Ask to Browse'],
+      [1367, 'Communication Safety'],
+      [1410, 'Screen Time'],
+      [1673, 'Apple Intelligence'],
+      [1770, 'Apple Foundation Models'],
+      [1791, 'Private Cloud Compute'],
+      [1914, 'App Actions'],
+      [2006, 'Siri AI'],
+      [2277, 'Siri — Voice & Dictation'],
+      [2355, 'Siri — Conversations'],
+      [2508, 'Siri — Mac & Spotlight'],
+      [2835, 'Visual Intelligence'],
+      [2922, 'Visual Intelligence — Mac'],
+      [2959, 'Visual Intelligence — iPad & visionOS'],
+      [2987, 'Writing Tools'],
+      [3052, 'Siri AI — Availability'],
+      [3112, 'Safari'],
+      [3208, 'Safari — Notify Me'],
+      [3261, 'Safari — Extensions'],
+      [3277, 'Passwords'],
+      [3320, 'Messages'],
+      [3367, 'Calendar'],
+      [3389, 'Phone App'],
+      [3444, 'Home App'],
+      [3530, 'Shortcuts'],
+      [3617, 'Image Playground'],
+      [3744, 'Photos'],
+      [3845, 'Photos — Spatial Reframing'],
+      [4131, 'App Intents'],
+      [4143, 'Foundation Models — Dev'],
+      [4219, 'Core AI'],
+      [4252, 'Xcode — Agentic Coding'],
+      [4281, 'Device Hub'],
+      [4326, 'Closing'],
     ],
     speakers: [
-      {ts:27,   name:'Tim Cook', key:'Tim'},
-      {ts:163,  name:'Craig Federighi', key:'Craig'},
-      {ts:351,  name:'Stacey Lysik', key:'Stacey'},
-      {ts:405,  name:'Shubham Gupta', key:'Shubham'},
-      {ts:1074, name:'Sumbul Ahmad Tariq', key:'Sumbul'},
-      {ts:1181, name:'Raja Koduri', key:'Raja'},
-      {ts:1301, name:'Ann Thai', key:'Ann'},
-      {ts:2006, name:'Mike Rockwell', key:'Mike'},
-      {ts:2355, name:'Justin Patarino', key:'Justin'},
-      {ts:2835, name:'Seb Roske', key:'Seb'},
-      {ts:3112, name:'Beth Dakin', key:'Beth'},
-      {ts:3429, name:'Cecilia Mecklem', key:'Cecilia'},
-      {ts:3617, name:'Leslie Schmid', key:'Leslie'},
-      {ts:3764, name:'Alok Vij', key:'Alok'},
+      {ts:27,   name:'Tim Cook',           key:'Tim',      section:'Opening'},
+      {ts:163,  name:'Craig Federighi',    key:'Craig',    section:'macOS & Platform Improvements'},
+      {ts:351,  name:'Stacey Lysik',       key:'Stacey',   section:'Platform Improvements'},
+      {ts:405,  name:'Shubham Gupta',      key:'Shubham',  section:'Liquid Glass'},
+      {ts:1020, name:'Craig Federighi',    key:'Craig',    section:'Trust & Safety'},
+      {ts:1074, name:'Sumbul Ahmad Tariq', key:'Sumbul',   section:'Child Safety'},
+      {ts:1181, name:'Raja Koduri',        key:'Raja',     section:'Child Safety — Apps'},
+      {ts:1301, name:'Ann Thai',           key:'Ann',      section:'Ask to Buy & Browse'},
+      {ts:1669, name:'Craig Federighi',    key:'Craig',    section:'Apple Intelligence'},
+      {ts:2006, name:'Mike Rockwell',      key:'Mike',     section:'Siri AI'},
+      {ts:2355, name:'Justin Patarino',    key:'Justin',   section:'Siri — Conversations'},
+      {ts:2835, name:'Seb Roske',          key:'Seb',      section:'Visual Intelligence & Writing'},
+      {ts:3055, name:'Craig Federighi',    key:'Craig',    section:'Siri AI Wrap-Up'},
+      {ts:3112, name:'Beth Dakin',         key:'Beth',     section:'Safari & App Intelligence'},
+      {ts:3429, name:'Cecilia Mecklem',    key:'Cecilia',  section:'Home & Shortcuts'},
+      {ts:3617, name:'Leslie Schmid',      key:'Leslie',   section:'Image Playground'},
+      {ts:3764, name:'Alok Vij',           key:'Alok',     section:'Photos AI'},
+      {ts:4326, name:'Tim Cook',           key:'Tim',      section:'Closing'},
     ],
     data: null,
   },
   psotu: {
     ytId: 'yl2jsIoMfDU',
-    file: 'WWDC26- Platforms State of the Union transcript.rtf',
-    fmt: 'rtf',
+    file: 'psotu-transcript.json',
     topics: [
       [19,   'Introduction'],
-      [143,  'Apple Foundation Models Framework'],
-      [286,  'Foundation Models: Sample App (Origami)'],
-      [403,  'Foundation Models: Image Input (Multimodal)'],
-      [437,  'Foundation Models: Server Models (Claude, Gemini)'],
-      [467,  'Foundation Models: Free Cloud Access for New Developers'],
-      [529,  'Foundation Models: Open Source Swift Package'],
-      [565,  'Dynamic Profiles API'],
-      [691,  'Foundation Models: Evaluations Framework'],
-      [764,  'Foundation Models: Open Source This Summer'],
-      [795,  'Core AI Framework'],
-      [884,  'App Intents: Siri Integration Overview'],
-      [926,  'App Intents: Entity & Intent Schemas'],
-      [995,  'App Intents: View Annotations API'],
-      [1157, 'Platform Improvements Overview'],
-      [1258, 'Platform Improvements: Performance & Responsiveness'],
-      [1293, 'Liquid Glass: Design Refinements'],
-      [1528, 'App Adaptability & Resizable Apps'],
-      [1625, 'SwiftUI Updates'],
-      [1939, 'SwiftUI: Adaptive Toolbars'],
-      [2017, 'SwiftUI: Document Infrastructure'],
-      [2062, 'SwiftUI: Spatial Preview Framework'],
-      [2120, 'Swift Language Overview'],
-      [2206, 'Swift: C / C++ Interoperability'],
-      [2326, 'Swift 6.4 Features'],
-      [2436, 'macOS: Apple Silicon Only'],
-      [2489, 'Xcode 27 Overview'],
-      [2654, 'Xcode 27: iCloud Settings Sync'],
-      [2660, 'Xcode 27: Quick Start (No Setup)'],
-      [2894, 'Xcode 27: Device Hub'],
-      [2948, 'Agentic Coding in Xcode 27'],
-      [3087, 'Xcode Agent: /plan Command'],
-      [3256, 'Xcode Agent: App Localization'],
-      [3303, 'Xcode Agent: Crash Fix from Organizer'],
-      [3397, 'Xcode: Plugins & Agent Client Protocol'],
-      [3477, 'Reality Composer Pro 3'],
+      [143,  'Apple Foundation Models'],
+      [286,  'Foundation Models — Demo'],
+      [403,  'Foundation Models — Multimodal'],
+      [437,  'Foundation Models — Server Models'],
+      [467,  'Foundation Models — Free Cloud Access'],
+      [529,  'Foundation Models — Open Source Package'],
+      [565,  'Dynamic Profiles'],
+      [691,  'Foundation Models — Evaluations'],
+      [764,  'Foundation Models — Open Source'],
+      [795,  'Core AI'],
+      [884,  'App Intents'],
+      [926,  'App Intents — Schemas'],
+      [995,  'App Intents — View Annotations'],
+      [1157, 'Platform Improvements'],
+      [1258, 'Performance'],
+      [1293, 'Liquid Glass'],
+      [1528, 'App Adaptability'],
+      [1625, 'SwiftUI'],
+      [1939, 'SwiftUI — Toolbars'],
+      [2017, 'SwiftUI — Documents'],
+      [2062, 'SwiftUI — Spatial Preview'],
+      [2120, 'Swift'],
+      [2326, 'Swift 6.4'],
+      [2436, 'macOS — Apple Silicon Only'],
+      [2489, 'Xcode 27'],
+      [2654, 'Xcode 27 — iCloud Settings'],
+      [2894, 'Device Hub'],
+      [2948, 'Agentic Coding'],
+      [3087, 'Agentic Coding — Plan Command'],
+      [3256, 'Xcode — Localization'],
+      [3303, 'Xcode — Crash Fixes'],
+      [3397, 'Xcode — Plugins & ACP'],
+      [3477, 'Reality Composer Pro'],
       [3499, 'Metal & Game Porting Toolkit'],
     ],
     speakers: [
-      {ts:19,   name:'Josh Shaffer — Opening',              key:'Josh'},
-      {ts:286,  name:'Richard Howell — Foundation Models',  key:'Richard'},
-      {ts:326,  name:'Mary Beth Kery — Foundation Models Demo', key:'Mary Beth'},
-      {ts:884,  name:'Lori Hylan-Cho — App Intents',        key:'Lori'},
-      {ts:1157, name:'Josh Shaffer — Platform Improvements', key:'Josh'},
-      {ts:1625, name:'Franck Doumbia — SwiftUI',             key:'Franck'},
-      {ts:2120, name:'Holly Borla — Swift',                  key:'Holly'},
-      {ts:2428, name:'Josh Shaffer — Developer Tools',       key:'Josh'},
-      {ts:2567, name:'Ken Orr — Xcode 27',                   key:'Ken'},
-      {ts:2948, name:'Kevin Cathey — Agentic Coding',        key:'Kevin'},
-      {ts:3472, name:'Josh Shaffer — Closing',               key:'Josh'},
+      {ts:19,   name:'Josh Shaffer',   key:'Josh',      section:'Opening'},
+      {ts:286,  name:'Richard Howell', key:'Richard',   section:'Foundation Models'},
+      {ts:326,  name:'Mary Beth Kery', key:'Mary Beth', section:'Foundation Models Demo'},
+      {ts:884,  name:'Lori Hylan-Cho', key:'Lori',      section:'App Intents'},
+      {ts:1157, name:'Josh Shaffer',   key:'Josh',      section:'Platform Improvements'},
+      {ts:1625, name:'Franck Doumbia', key:'Franck',    section:'SwiftUI'},
+      {ts:2120, name:'Holly Borla',    key:'Holly',     section:'Swift'},
+      {ts:2428, name:'Josh Shaffer',   key:'Josh',      section:'Developer Tools'},
+      {ts:2567, name:'Ken Orr',        key:'Ken',       section:'Xcode 27'},
+      {ts:2948, name:'Kevin Cathey',   key:'Kevin',     section:'Agentic Coding'},
+      {ts:3472, name:'Josh Shaffer',   key:'Josh',      section:'Closing'},
     ],
     data: null,
   },
@@ -310,70 +299,6 @@ function fmtSec(s) {
   const h = Math.floor(s/3600), m = Math.floor((s%3600)/60), sec = s%60;
   if (h) return `${h}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
   return `${m}:${String(sec).padStart(2,'0')}`;
-}
-
-// ── Parsers ──────────────────────────────────────────────────────────
-function parseKeynote(raw) {
-  const entries = [];
-  const spkRe = /^([A-Z][a-z]+(?:\s[A-Z][a-z]+)?):\s*/;
-  for (const line of raw.split('\n')) {
-    const ln = line.replace(/^\s*\d+\t/, '');
-    // Chapter heading
-    const chM = ln.match(/^Chapter\s+\d+:\s*(.+)$/);
-    if (chM) { entries.push({type:'ch', text:chM[1], s:0, speaker:null}); continue; }
-    // Timestamp line: starts with M:SS or H:MM:SS immediately followed by expanded time then content
-    const tsM = ln.match(/^(\d+:\d+(?::\d+)?)(?:\d[^A-Z♪]*seconds?)(.+)$/);
-    if (!tsM) continue;
-    const s = tsToSec(tsM[1]);
-    let text = tsM[2].trim();
-    let speaker = null;
-    const spM = text.match(spkRe);
-    if (spM) { speaker = spM[1]; text = text.slice(spM[0].length); }
-    // Skip pure music / sound effect lines for search
-    const isMusic = text.startsWith('♪') || text.startsWith('[ ');
-    if (text) entries.push({type:'line', s, speaker, text, isMusic});
-  }
-  return entries;
-}
-
-function parseRTF(raw) {
-  const entries = [];
-  const lines = raw.split('\n');
-  let pendingTs = null;
-
-  for (const ln of lines) {
-    const t = ln.trim();
-    // Timestamp line
-    const tsM = t.match(/\\cf4 \\cb5 ([\d:]+)\\$/);
-    if (tsM) { pendingTs = tsM[1]; continue; }
-
-    if (pendingTs) {
-      // Content line: \cf2 followed by \cbN
-      const cM = t.match(/\\cf2 \\cb\d (.+)/);
-      if (cM) {
-        // Strip trailing \cbN codes and residual RTF control sequences
-        let text = cM[1]
-          .replace(/\\cb\d.*$/, '')
-          .replace(/\\[a-z]+\d*\s?/g, ' ')
-          .replace(/\s+/g, ' ')
-          .trim();
-        if (text) {
-          entries.push({type:'line', s: tsToSec(pendingTs), speaker:null, text, isMusic:false});
-        }
-        pendingTs = null;
-      }
-    }
-  }
-
-  // Annotate speakers by timestamp range
-  const ranges = VIDS.psotu.speakers;
-  for (const e of entries) {
-    for (let i = ranges.length-1; i >= 0; i--) {
-      if (e.s >= ranges[i].ts) { e.speaker = ranges[i].key; break; }
-    }
-  }
-
-  return entries;
 }
 
 // ── YouTube IFrame API (enhancement — plain iframe always works first) ──
@@ -418,13 +343,30 @@ function buildDropdowns() {
     tSel.appendChild(o);
   }
 
+  // Group speakers by name to detect multi-appearance speakers
   const sSel = document.getElementById('spkr-sel');
   sSel.innerHTML = '<option value="">By speaker…</option>';
+  const grouped = new Map();
   for (const sp of vid.speakers) {
+    if (!grouped.has(sp.name)) grouped.set(sp.name, []);
+    grouped.get(sp.name).push(sp);
+  }
+  for (const [name, entries] of grouped) {
     const o = document.createElement('option');
-    o.value = sp.ts; o.textContent = sp.name;
+    if (entries.length === 1) {
+      o.value = String(entries[0].ts);
+      o.textContent = name;
+    } else {
+      o.value = `multi:${name}`;
+      o.textContent = `${name} ▸`;
+    }
     sSel.appendChild(o);
   }
+
+  // Hide secondary appearance dropdown
+  const s2 = document.getElementById('spkr2-sel');
+  s2.innerHTML = '<option value="">Choose appearance…</option>';
+  s2.style.display = 'none';
 }
 
 function switchVid(key) {
@@ -465,7 +407,7 @@ function runSearch(q) {
   }
 
   const ql = q.toLowerCase();
-  const hits = vid.data.filter(e => e.type === 'line' && !e.isMusic && e.text.toLowerCase().includes(ql));
+  const hits = vid.data.filter(e => !e.isMusic && e.text.toLowerCase().includes(ql));
 
   if (!hits.length) {
     panel.innerHTML = '<div class="r-count">No results found.</div>';
@@ -499,8 +441,39 @@ document.querySelectorAll('.vid-btn').forEach(b =>
 document.getElementById('topic-sel').addEventListener('change', function() {
   if (this.value) { seekTo(+this.value); this.value = ''; clearResults(); }
 });
+
 document.getElementById('spkr-sel').addEventListener('change', function() {
-  if (this.value) { seekTo(+this.value); this.value = ''; clearResults(); }
+  const val = this.value;
+  const s2 = document.getElementById('spkr2-sel');
+  if (!val) { s2.style.display = 'none'; return; }
+  if (val.startsWith('multi:')) {
+    // Multi-appearance speaker — populate and show secondary dropdown
+    const name = val.slice(6);
+    const entries = VIDS[curVid].speakers.filter(sp => sp.name === name);
+    s2.innerHTML = '<option value="">Choose appearance…</option>';
+    for (const sp of entries) {
+      const o = document.createElement('option');
+      o.value = sp.ts;
+      o.textContent = sp.section || fmtSec(sp.ts);
+      s2.appendChild(o);
+    }
+    s2.style.display = '';
+  } else {
+    // Single-appearance speaker — seek directly
+    seekTo(+val);
+    this.value = '';
+    s2.style.display = 'none';
+    clearResults();
+  }
+});
+
+document.getElementById('spkr2-sel').addEventListener('change', function() {
+  if (this.value) {
+    seekTo(+this.value);
+    document.getElementById('spkr-sel').value = '';
+    this.style.display = 'none';
+    clearResults();
+  }
 });
 
 document.getElementById('srch').addEventListener('input', function() {
@@ -522,29 +495,21 @@ document.getElementById('player-wrap').addEventListener('pointerdown', clearResu
 
 // ── Load transcripts ──────────────────────────────────────────────────
 async function loadVidData(key) {
-  const vid = VIDS[key];
   try {
-    const res = await fetch(vid.file);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const text = await res.text();
-    vid.data = vid.fmt === 'keynote' ? parseKeynote(text) : parseRTF(text);
-  } catch (err) {
-    console.warn(`Could not load "${vid.file}":`, err.message);
-    vid.data = [];
+    const res = await fetch(VIDS[key].file);
+    if (!res.ok) throw new Error(res.status);
+    VIDS[key].data = await res.json();
+  } catch(e) {
+    VIDS[key].data = [];
   }
 }
 
 async function init() {
   buildDropdowns();
-
-  // Inject YouTube IFrame API
   const s = document.createElement('script');
   s.src = 'https://www.youtube.com/iframe_api';
   document.head.appendChild(s);
-
-  // Load both transcripts in parallel
   await Promise.all(Object.keys(VIDS).map(loadVidData));
-
   const badge = document.getElementById('loading-badge');
   if (badge) badge.remove();
 }
