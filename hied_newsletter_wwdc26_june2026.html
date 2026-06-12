@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apple Higher Education IT — WWDC26 Special Edition | June 2026</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .container { max-width: 860px; margin: 32px auto; background: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .section { padding: 32px 48px; }
+    .label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: #6e6e73; margin: 0 0 10px; }
+    hr { border: none; border-top: 1px solid #dddee1; margin: 0; }
+    h2 { font-size: 20px; font-weight: 600; color: #1d1d1f; margin: 0 0 8px; line-height: 1.3; }
+    h3 { font-size: 16px; font-weight: 600; color: #1d1d1f; margin: 0 0 6px; }
+    p { margin: 0 0 12px; font-size: 15px; color: #1d1d1f; line-height: 1.7; }
+    ul.plain-list { padding-left: 22px; margin: 8px 0 12px; }
+    ul.plain-list li { margin-bottom: 10px; font-size: 15px; line-height: 1.7; }
+    .notice-box { background-color: #fff8f0; border-left: 4px solid #ff6b00; padding: 20px 24px; border-radius: 0 6px 6px 0; }
+    .blue-box { background-color: #f0f6ff; border-left: 4px solid #0176ba; padding: 20px 24px; border-radius: 0 6px 6px 0; }
+    .green-box { background-color: #f2fbf5; border-left: 4px solid #34c759; padding: 20px 24px; border-radius: 0 6px 6px 0; }
+    .sub-label { font-size: 13px; color: #6e6e73; margin: 2px 0 0; font-weight: normal; }
+    .note-text { font-size: 13px; color: #6e6e73; font-style: italic; margin: 10px 0 0; }
+    code { font-family: 'SF Mono', Menlo, monospace; background: #f5f5f7; padding: 1px 5px; border-radius: 3px; font-size: 13px; color: #c05000; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .back-to-top { display: block; text-align: right; font-size: 12px; margin-top: 16px; }
+    .video-links { font-size: 14px; color: #6e6e73; margin: 4px 0 12px; }
+    .video-links a { color: #0176ba; }
+    .dot-sep { color: #dddee1; margin: 0 4px; }
+    @media (max-width: 700px) {
+      .container { margin: 0; border-radius: 0; box-shadow: none; }
+      .section { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════ SITE HEADER -->
+  <header class="site-header" role="banner">
+    <div class="site-header-inner">
+      <a href="index.html" class="site-header-logo" aria-label="Apple Higher Education IT News and Updates — home">
+        Apple Higher Education IT News and Updates
+      </a>
+      <nav aria-label="Site navigation">
+        <ul class="site-nav">
+          <li><a href="index.html" class="active" aria-current="page">Newsletter</a></li>
+          <li><a href="new-to-mac.html">New to Mac?</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container" role="main">
+
+    <!-- ═══════════════════════════════════════ HEADER -->
+    <div id="top" style="background-color:#1d1d1f; position:relative; overflow:hidden; line-height:0;">
+      <img src="https://www.apple.com/v/os/f/images/shared/welcome/hero_endframe__bibjo73favoy_small_2x.jpg"
+           alt=""
+           width="860"
+           style="width:100%; max-width:860px; display:block; margin-top:-30%;">
+      <div style="position:absolute; top:0; left:0; right:0; height:100%; background:linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, transparent 50%);"></div>
+      <div style="position:absolute; top:0; left:0; right:0; padding:32px 48px; line-height:1.4;">
+        <p style="margin:0 0 4px; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#86868b; font-weight:500;">Apple Higher Education IT — Special Edition</p>
+        <h1 style="margin:0 0 6px; font-size:28px; font-weight:600; color:#ffffff; line-height:1.2;">WWDC26 for Higher Education IT</h1>
+        <p style="margin:0; font-size:14px; color:#86868b;">June 2026</p>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════ INDEX -->
+    <nav class="section" style="background-color:#fafafa;" role="navigation" aria-label="Newsletter contents">
+      <p class="label">In This Edition</p>
+      <ol style="margin:0; padding-left:20px; line-height:2.3; font-size:15px;">
+        <li><a href="#highlights">WWDC26 Highlights</a></li>
+        <li><span aria-hidden="true">⚠️ </span><a href="#action">Action Suggested</a></li>
+        <li><a href="#whatsnewitall">What's New for IT at WWDC26</a></li>
+        <li><a href="#services">Apple Services Updates</a></li>
+        <li><a href="#devicemgmt">Device Management Updates</a></li>
+        <li><a href="#appmgmt">App Management Updates</a></li>
+        <li><a href="#identity">Identity Integration Updates</a></li>
+        <li><a href="#education">Education-Specific Updates</a></li>
+        <li><a href="#appleseed">AppleSeed for IT — Start Testing Now</a></li>
+        <li><a href="#pcc">Expanding Private Cloud Compute</a></li>
+        <li><a href="#explore">Explore WWDC26</a></li>
+      </ol>
+    </nav>
+    <hr aria-hidden="true">
+
+    <!-- ═══════════════════════════════════════ HIGHLIGHTS -->
+    <div id="highlights" class="section">
+      <p class="label" style="color:#0176ba;">🌟 WWDC26 Highlights</p>
+      <h2 style="margin:0 0 10px;">What Apple Announced This Week</h2>
+      <p>At WWDC26, Apple unveiled the next generation of <a href="https://nr.apple.com/Dj1Z8k1Ho9" aria-label="Read about the next generation of Apple Intelligence">Apple Intelligence</a>, <a href="https://nr.apple.com/Dj1J2Y9Nr4" aria-label="Read about Siri AI">Siri AI</a>, and <a href="https://nr.apple.com/Di3b0i6XE3" aria-label="Read about Apple's new child safety and parental control features">powerful new parental controls</a> — including a <a href="https://www.apple.com/child-safety/" aria-label="Visit Apple's child safety page">new child safety site</a> with tools that give parents greater control over their kids' content, communication, and device access time — along with new capabilities for <a href="https://nr.apple.com/DH2j8g2lY5" aria-label="Read about new developer tools and intelligence frameworks">developers</a>, expanded <a href="https://nr.apple.com/Dt9a4W9CL6" aria-label="Read about expanded App Store capabilities">App Store</a> options, and innovative features across <a href="https://nr.apple.com/DM1g9G3Gs1" aria-label="Read about new features across Maps, Find My, and Apple Wallet">Maps, Find My, and Apple Wallet</a>.</p>
+      <p><strong>Need just the highlights?</strong><br><a href="https://nr.apple.com/DT5l8l9RR3" aria-label="Watch Greg Joswiak's 90-second WWDC26 recap">Greg "Joz" Joswiak covers it in 90 seconds</a>.</p>
+      <p>For context on how Siri AI integrates with Google search in iOS 27 — and what that means for privacy — <a href="https://9to5mac.com/2026/06/08/craig-federighi-details-apples-collaboration-with-google-for-siri-ai-in-ios-27/" aria-label="Read 9to5Mac's article on Craig Federighi's comments about Siri AI and Google collaboration">Craig Federighi shared additional detail after the keynote</a>. Useful context for IT teams advising faculty and students on the new Siri capabilities.</p>
+
+      <h3 style="margin:16px 0 2px;">Watch the Keynote</h3>
+      <p class="video-links" style="margin:0 0 4px;">
+        <a href="https://developer.apple.com/videos/play/wwdc2026/101/" aria-label="Watch the WWDC26 Keynote on Apple Developer">Apple Developer</a>
+        <span class="dot-sep" aria-hidden="true">·</span>
+        <a href="https://developer.apple.com/videos/play/wwdc2026/111/" aria-label="Watch the WWDC26 Keynote with ASL on Apple Developer">Apple Developer with ASL</a>
+      </p>
+      <p class="video-links" style="margin:0 0 10px;">
+        <a href="https://www.youtube.com/live/hF8swzNR1-o" aria-label="Watch the WWDC26 Keynote on YouTube">YouTube</a>
+        <span class="dot-sep" aria-hidden="true">·</span>
+        <a href="https://youtu.be/QTL_we3HspI" aria-label="Watch the WWDC26 Keynote on YouTube with ASL and Audio Descriptions">YouTube with ASL &amp; Audio Descriptions</a>
+      </p>
+
+      <h3 style="margin:0 0 2px;">Watch Platforms State of the Union</h3>
+      <p class="video-links" style="margin:0 0 4px;">
+        <a href="https://developer.apple.com/videos/play/wwdc2026/102/" aria-label="Watch the WWDC26 Platforms State of the Union on Apple Developer">Apple Developer</a>
+        <span class="dot-sep" aria-hidden="true">·</span>
+        <a href="https://developer.apple.com/videos/play/wwdc2026/112/" aria-label="Watch the WWDC26 Platforms State of the Union with ASL on Apple Developer">Apple Developer with ASL</a>
+      </p>
+      <p class="video-links" style="margin:0 0 0;">
+        <a href="https://www.youtube.com/live/yl2jsIoMfDU" aria-label="Watch the WWDC26 Platforms State of the Union on YouTube">YouTube</a>
+        <span class="dot-sep" aria-hidden="true">·</span>
+        <a href="https://youtu.be/NM8krtCkEmQ" aria-label="Watch the WWDC26 Platforms State of the Union recap on YouTube">Recap on YouTube</a>
+      </p>
+      <a href="#top" class="back-to-top" aria-label="Back to top of newsletter" style="color:#6e6e73;">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+    <hr aria-hidden="true">
+
+    <!-- ═══════════════════════════════════════ ACTION SUGGESTED -->
+    <div id="action" class="section">
+      <p class="label" style="color:#c05000;">⚠️ Action Suggested</p>
+      <div class="notice-box">
+        <h2 style="font-size:18px; margin:0 0 14px;">Two Items to Address Before Fall Deployment</h2>
+
+        <h3 style="margin:0 0 4px;">Intel Mac Transition Planning</h3>
+        <p style="margin:0 0 12px;">macOS 26 is the last macOS release with full support for Intel-based Mac computers. All Mac computers with macOS 26.4 or later display a notification to transparently inform users about the deprecation when an application using Rosetta launches.</p>
+        <p style="margin:0 0 12px;">Apple will continue providing software security updates for Intel-based Mac computers for three years. <a href="https://support.apple.com/guide/deployment/app-management-updates-depd567c9ffa/1/web/1.0#dep920e41140" aria-label="Read Apple's guidance on Intel Mac deprecation and Rosetta in app management updates">Read more <span aria-hidden="true">→</span></a></p>
+
+        <h3 style="margin:0 0 4px;">Legacy Software Update Management Removed in OS 27</h3>
+        <p style="margin:0 0 0;">Announced last year, legacy software update management no longer functions in all 27.0 operating systems. IT teams should use declarative software update management to configure and enforce updates on devices with increased user transparency and more control. <a href="https://support.apple.com/en-ca/guide/deployment/depd638aa061/1/web/1.0#depd478f87b8" aria-label="Read Apple's guidance on legacy software update management removal in OS 27">Read more <span aria-hidden="true">→</span></a></p>
+      </div>
+      <a href="#top" class="back-to-top" aria-label="Back to top of newsletter" style="color:#6e6e73;">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+    <hr aria-hidden="true">
+
+    <!-- ═══════════════════════════════════════ WHAT'S NEW FOR IT -->
+    <div id="whatsnewitall" class="section">
+      <p class="label" style="color:#0176ba;">What's New for IT at WWDC26</p>
+      <h2 style="margin:0 0 10px;">Your Starting Point for Everything IT-Related</h2>
+      <p style="margin:0 0 8px;"><a href="https://support.apple.com/guide/deployment/intro-to-whats-new-for-it-at-wwdc26-depf12f51f51/1/web/1.0" style="font-size:16px; font-weight:600;" aria-label="Read the full Intro to What's New for IT at WWDC26">Intro to What's New for IT at WWDC26 <span aria-hidden="true">→</span></a></p>
+      <p>Apple has published a comprehensive summary of new device management-related features in Apple platforms, services, and apps. It's a supplement to the Apple Platform Deployment, Apple Platform Security, and Apple Platform Certifications documentation, which are designed to help IT teams understand the key technologies for securing, managing, and deploying Apple devices at scale, and providing an optimal user experience.</p>
+      <p style="margin:0 0 4px;">This content covers updates to:</p>
+      <ul class="plain-list" style="margin:4px 0 12px;">
+        <li><a href="https://support.apple.com/guide/deployment/apple-services-updates-dep5a7629d2f/1/web/1.0" aria-label="Read WWDC26 Apple services updates">Apple services</a></li>
+        <li><a href="https://support.apple.com/guide/deployment/device-management-updates-depd638aa061/1/web/1.0" aria-label="Read WWDC26 device management updates">Device management</a></li>
+        <li><a href="https://support.apple.com/guide/deployment/app-management-updates-depd567c9ffa/1/web/1.0" aria-label="Read WWDC26 app management updates">App management</a></li>
+        <li><a href="https://support.apple.com/guide/deployment/identity-integration-updates-dep956785e70/1/web/1.0" aria-label="Read WWDC26 identity integration updates">Identity integration</a></li>
+        <li><a href="https://support.apple.com/guide/deployment/education-specific-updates-depacd1b21be/1/web/1.0" aria-label="Read WWDC26 education-specific updates">Education-specific content</a></li>
+      </ul>
+      <p style="margin:0;">For more information about content in this document, see the WWDC26 session <a href="https://developer.apple.com/videos/play/wwdc2026/206/" aria-label="Watch What's New in Managing Apple Devices at WWDC26">What's New in Managing Apple Devices</a>.</p>
+      <a href="#top" class="back-to-top" aria-label="Back to top of newsletter" style="color:#6e6e73;">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+    <hr aria-hidden="true">
+
+    <!-- ═══════════════════════════════════════ APPLE SERVICES -->
+    <div id="services" class="section">
+      <p class="label">Apple Services Updates</p>
+      <h2 style="margin:0 0 10px;">Apple Business Manager &amp; Apple School Manager</h2>
+
+      <h3 style="margin:0 0 4px;">Volume Purchase App Subscriptions</h3>
+      <p>Later this year, a new volume licensing mechanism will be available for subscriptions in App Store apps. This allows IT teams to purchase and manage app subscriptions in Apple School Manager and Apple Business Manager. IT teams can assign app subscriptions to users (not devices) using device management. Developers can manage availability of subscriptions available to organizations in Apple School Manager and Apple Business Manager.</p>
+      <p style="margin:0 0 12px;"><em style="font-size:14px; color:#6e6e73;">Note: This feature is for app subscriptions that auto-renew only, not one-time in-app purchases.</em> For more information, see the WWDC26 session <a href="https://developer.apple.com/videos/play/wwdc2026/391/" aria-label="Watch Offer subscriptions to groups and organizations at WWDC26">Offer Subscriptions to Groups and Organizations</a>.</p>
+
+      <h3 style="margin:0 0 4px;">Additional Device Details for Device Management Services</h3>
+      <p style="margin:0 0 0;">With X-Server-Protocol-Version 10, a device management service can retrieve additional details about devices registered in Apple School Manager or Apple Business Manager — including Wi-Fi and Bluetooth MAC addresses, EID, IMEI, MEID for cellular devices, and whether a device is a replacement. A new GetReplacementDetails endpoint provides further information for replacement devices. <a href="https://support.apple.com/guide/deployment/apple-services-updates-dep5a7629d2f/1/web/1.0" aria-label="Read the full Apple services updates for WWDC26">Full details <span aria-hidden="true">→</span></a></p>
+      <a href="#top" class="back-to-top" aria-label="Back to top of newsletter" style="color:#6e6e73;">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+    <hr aria-hidden="true">
+
+    <!-- ═══════════════════════════════════════ DEVICE MANAGEMENT -->
+    <div id="devicemgmt" class="section">
+      <p class="label">Device Management Updates</p>
+      <h2 style="margin:0 0 10px;">New in MDM and Declarative Device Management</h2>
+      <p>OS 27 brings a significant set of updates to device management. Key items for higher ed IT teams:</p>
+
+      <h3 style="margin:12px 0 4px;">Configuration Profiles as Declarative Assets</h3>
+      <p>Configuration profiles can now be used as declarative assets, bringing the benefits of DDM — continuous enforcement, status reporting, and reduced reliance on MDM check-ins — to existing profile-based workflows.</p>
+
+      <h3 style="margin:12px 0 4px;">Network Security Requirements</h3>
+      <p>OS 27 introduces stricter network security requirements for MDM connections, Automated Device Enrollment, configuration profile installation, app installation, and software updates. This is the requirement we've been flagging in previous editions. If your environment hasn't been audited yet, prioritize this before beta testing begins. <a href="https://support.apple.com/en-us/126655" aria-label="Read Apple's guidance on preparing your network for stricter security requirements">Prepare your network environment <span aria-hidden="true">→</span></a></p>
+
+      <h3 style="margin:12px 0 4px;">Also New in Device Management</h3>
+      <ul class="plain-list" style="margin:4px 0 0;">
+        <li><strong>Status reporting enhancements</strong> — expanded device-state visibility for MDM solutions</li>
+        <li><strong>Managed Migration Assistant</strong> — updated management capabilities for device-to-device migrations</li>
+        <li><strong>Intelligence, Siri, and keyboard management</strong> — new restrictions for managing AI features across managed devices</li>
+        <li><strong>Web content filter plugin configuration</strong> — new options for managed content filtering</li>
+        <li><strong>Content caching configuration</strong> — additional controls for campus content caching deployments</li>
+        <li><strong>AppleCare log collection</strong> — streamlined diagnostic log collection for managed devices</li>
+        <li><strong>Return to Service enhancements</strong> — improvements to the automated device re-enrollment workflow</li>
+        <li><strong>File Provider management</strong> — new management options for cloud storage integrations</li>
+      </ul>
+      <p style="margin:12px 0 0;"><a href="https://support.apple.com/guide/deployment/device-management-updates-depd638aa061/1/web/1.0" aria-label="Read the full device management updates for WWDC26">Full device management updates <span aria-hidden="true">→</span></a> &nbsp;·&nbsp; <a href="https://github.com/apple/device-management" aria-label="View the Apple Device Management GitHub schema updated for OS 27">DDM schema — OS 27 seed on GitHub <span aria-hidden="true">→</span></a></p>
+      <a href="#top" class="back-to-top" aria-label="Back to top of newsletter" style="color:#6e6e73;">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+    <hr aria-hidden="true">
+
+    <!-- ═══════════════════════════════════════ APP MANAGEMENT -->
+    <div id="appmgmt" class="section">
+      <p class="label">App Management Updates</p>
+      <h2 style="margin:0 0 10px;">New in App Management</h2>
+
+      <h3 style="margin:0 0 4px;">Also New in App Management</h3>
+      <ul class="plain-list" style="margin:4px 0 0;">
+        <li><strong>Management for launching apps and binaries</strong> — new controls for restricting which apps and processes can run on managed devices</li>
+        <li><strong>Privacy consent updates</strong> — updated privacy prompts and consent workflows for managed app deployments</li>
+        <li><strong>ManagedApp framework on macOS</strong> — expanded managed app capabilities now available on macOS</li>
+        <li><strong>App Attest on macOS</strong> — Secure Enclave-based app integrity validation now available on Mac</li>
+      </ul>
+      <p style="margin:12px 0 0;"><a href="https://support.apple.com/guide/deployment/app-management-updates-depd567c9ffa/1/web/1.0" aria-label="Read the full app management updates for WWDC26">Full app management updates <span aria-hidden="true">→</span></a></p>
+      <a href="#top" class="back-to-top" aria-label="Back to top of newsletter" style="color:#6e6e73;">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+    <hr aria-hidden="true">
+
+    <!-- ═══════════════════════════════════════ IDENTITY INTEGRATION -->
+    <div id="identity" class="section">
+      <p class="label">Identity Integration Updates</p>
+      <h2 style="margin:0 0 10px;">Platform SSO, FileVault, and Authenticated Guest Mode</h2>
+      <p>OS 27 brings meaningful improvements for campuses using Platform SSO with Entra, Okta, or other identity providers.</p>
+
+      <h3 style="margin:12px 0 4px;"><a href="https://support.apple.com/guide/deployment/identity-integration-updates-dep956785e70/1/web/1.0#depd0cc01c55" aria-label="Read about FileVault for Authenticated Guest Mode">FileVault for Authenticated Guest Mode</a></h3>
+      <p style="margin:0 0 10px;">On a shared Mac with macOS 27, FileVault now supports Authenticated Guest Mode. This allows temporary, IdP-authenticated users to unlock FileVault and access the Mac, supporting shared Mac deployments where compliance requires full-disk encryption.</p>
+
+      <h3 style="margin:0 0 4px;"><a href="https://support.apple.com/guide/deployment/identity-integration-updates-dep956785e70/1/web/1.0#dep049262935" aria-label="Read about web-based authentication with Platform SSO">Web-Based Authentication with Platform SSO</a></h3>
+      <p style="margin:0 0 10px;">On a Mac with macOS 27, IT teams can deploy modern, phishing-resistant, and flexible authentication methods with web-based authentication. The web view supports multi-step and multi-factor authentication flows as well as QR code sign-in.</p>
+
+      <h3 style="margin:0 0 4px;"><a href="https://support.apple.com/guide/deployment/identity-integration-updates-dep956785e70/1/web/1.0#dep3e6154491" aria-label="Read about login window network access on macOS">Login Window Network Access on macOS</a></h3>
+      <p style="margin:0 0 10px;">On a supervised Mac with macOS 27, IT teams can allow users to connect a different network and authenticate with captive portals at FileVault unlock, at the Lock Screen, and the login window.</p>
+
+      <h3 style="margin:0 0 4px;"><a href="https://support.apple.com/guide/deployment/identity-integration-updates-dep956785e70/1/web/1.0#dep48eaf13b2" aria-label="Read about Touch ID required for Platform SSO">Touch ID Required for Platform SSO</a></h3>
+      <p style="margin:0 0 10px;">On a supervised Mac with macOS 27, organizations can require Touch ID — or alternatively Apple Watch unlock — as an additional factor at every critical macOS authentication entry point to help deliver phishing-resistant biometric multi-factor authentication without additional infrastructure.</p>
+
+      <h3 style="margin:0 0 4px;"><a href="https://support.apple.com/guide/deployment/identity-integration-updates-dep956785e70/1/web/1.0#dep4943f73cb" aria-label="Read about Extensible SSO in declarative device management">Extensible SSO in Declarative Device Management</a></h3>
+      <p style="margin:0 0 10px;">On devices with iOS 27, iPadOS 27, macOS 27, and visionOS 27, a new <code>com.apple.configuration.extensible-sso</code> configuration brings Extensible SSO and Platform SSO settings to declarative device management.</p>
+
+      <h3 style="margin:0 0 4px;"><a href="https://support.apple.com/guide/deployment/identity-integration-updates-dep956785e70/1/web/1.0#depbc443f8a9" aria-label="Read about Authenticated Guest Mode for Shared iPad">Authenticated Guest Mode for Shared iPad</a></h3>
+      <p style="margin:0 0 12px;">Later this year, Authenticated Guest Mode will be available on Shared iPad, supporting temporary sessions after authenticating with a Managed Apple Account.</p>
+
+      <p style="margin:0;"><a href="https://support.apple.com/guide/deployment/identity-integration-updates-dep956785e70/1/web/1.0" aria-label="Read the full identity integration updates for WWDC26">Full identity integration updates <span aria-hidden="true">→</span></a> &nbsp;·&nbsp; <a href="https://support.apple.com/guide/deployment/platform-sso-for-macos-dep7bbb05313/1/web/1.0" aria-label="Read the Platform SSO for macOS deployment guide updated for WWDC26">Platform SSO for macOS guide <span aria-hidden="true">→</span></a> &nbsp;·&nbsp; <a href="https://developer.apple.com/videos/play/wwdc2026/206/" aria-label="Watch What's New in Managing Apple Devices at WWDC26">Session 206 — What's New in Managing Apple Devices <span aria-hidden="true">→</span></a></p>
+      <a href="#top" class="back-to-top" aria-label="Back to top of newsletter" style="color:#6e6e73;">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+    <hr aria-hidden="true">
+
+    <!-- ═══════════════════════════════════════ EDUCATION-SPECIFIC -->
+    <div id="education" class="section">
+      <p class="label" style="color:#248a3d;">Education-Specific Updates</p>
+      <h2 style="margin:0 0 10px;">Classroom, Guided Browsing, and Assessment</h2>
+
+      <h3 style="margin:0 0 4px;">Guided Browsing and Lock to URL</h3>
+      <p>In a new version of the Classroom app on devices with iPadOS 27 and macOS 27, instructors can lock student devices to one or more specific websites — a significant upgrade from the previous single-URL limitation. This expands practical use cases for course-specific browser sessions, lab environments, and proctored browsing during assessments.</p>
+
+      <h3 style="margin:12px 0 4px;">Multi-App Mode</h3>
+      <p>A new version of the Classroom app will allow instructors to lock student iPad and Mac devices to one or more apps — giving instructors finer control over the student experience during class without requiring full Guided Access.</p>
+
+      <h3 style="margin:12px 0 4px;">Assessment Mode on macOS</h3>
+      <p>On a Mac with macOS 27, developers can now adopt a flexible, granular version of Automatic Assessment Configuration on Mac to create a secure, configurable testing environment that incorporates more system-level features on the Mac, including the Dock and Menu Bar. In addition, built-in system pre-checks and accessibility controls deliver a reliable exam experience.</p>
+
+      <p style="margin:12px 0 0;"><a href="https://support.apple.com/guide/deployment/education-specific-updates-depacd1b21be/1/web/1.0" aria-label="Read the full education-specific updates for WWDC26">Full education-specific updates <span aria-hidden="true">→</span></a> &nbsp;·&nbsp; <a href="https://developer.apple.com/videos/play/wwdc2026/230/" aria-label="Watch What's New in Assessment on macOS at WWDC26">Session 230: What's New in Assessment on macOS <span aria-hidden="true">→</span></a></p>
+      <a href="#top" class="back-to-top" aria-label="Back to top of newsletter" style="color:#6e6e73;">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+    <hr aria-hidden="true">
+
+    <!-- ═══════════════════════════════════════ APPLESEED FOR IT -->
+    <div id="appleseed" class="section">
+      <div class="green-box">
+        <p class="label" style="color:#248a3d; margin:0 0 8px;">🧪 AppleSeed for IT</p>
+        <h2 style="font-size:18px; margin:0 0 8px;">Start Testing Beta 1 Now</h2>
+        <p style="margin:0 0 10px;">Beta 1 of iOS 27, iPadOS 27, macOS 27, watchOS 27, and visionOS 27 are available now. Log in to AppleSeed for IT to review the latest program guide and release notes, enroll your test devices, and start evaluating new management features in your own environment.</p>
+        <p style="margin:0 0 12px;">Apple needs feedback from IT administrators starting with the very first beta — the earlier your institution engages, the more influence you have on the final release. If your team hasn't set up AppleSeed for IT yet, now is the time.</p>
+        <a href="https://beta.apple.com/for-it" style="color:#248a3d;" aria-label="Log in to AppleSeed for IT and start testing OS 27 betas">Get started with AppleSeed for IT <span aria-hidden="true">→</span></a>
+      </div>
+      <a href="#top" class="back-to-top" aria-label="Back to top of newsletter" style="color:#6e6e73;">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+    <hr aria-hidden="true">
+
+    <!-- ═══════════════════════════════════════ PRIVATE CLOUD COMPUTE -->
+    <div id="pcc" class="section">
+      <p class="label" style="color:#0176ba;">Apple Security Research</p>
+      <h2 style="margin:0 0 10px;">Expanding Private Cloud Compute</h2>
+      <p>Alongside the next generation of Apple Intelligence, Apple is expanding Private Cloud Compute (PCC) beyond Apple's data centers. When Apple introduced Private Cloud Compute in 2024, it defined a new frontier for private AI inference, extending the security and privacy of Apple devices into the cloud for those AI workloads more complex than on-device models can handle. Now, Apple is collaborating with Google and NVIDIA to run new Apple Intelligence workloads on Google Cloud, extending industry-leading PCC privacy commitments to third-party data centers for the first time.</p>
+      <p style="margin:0; font-size:14px; color:#6e6e73;">Published June 8, 2026 · <a href="https://security.apple.com/blog/expanding-pcc/" aria-label="Read Apple's full announcement on expanding Private Cloud Compute">Apple Security Research Blog <span aria-hidden="true">→</span></a></p>
+      <a href="#top" class="back-to-top" aria-label="Back to top of newsletter" style="color:#6e6e73;">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+    <hr aria-hidden="true">
+
+    <!-- ═══════════════════════════════════════ EXPLORE WWDC26 -->
+    <div id="explore" class="section">
+      <p class="label">Explore WWDC26</p>
+      <h2 style="margin:0 0 10px;">Sessions, Documentation &amp; Developer Resources</h2>
+      <p>All WWDC26 sessions are now available on demand. For IT administrators and education technology teams, the <a href="https://developer.apple.com/videos/business-education/" aria-label="Browse WWDC26 sessions tagged for Business and Education">Business &amp; Education sessions hub</a> surfaces the most relevant content in one place.</p>
+      <ul class="plain-list" style="margin:8px 0 0;">
+        <li><a href="https://apple.co/VideoSessions" aria-label="Browse all WWDC26 video sessions">All sessions</a> — Browse the full WWDC26 session catalog</li>
+        <li><a href="https://apple.co/DeveloperDocs" aria-label="Browse Apple developer documentation">Developer Documentation</a> — Updated frameworks, APIs, and platform guides</li>
+        <li><a href="https://apple.co/DeveloperForums" aria-label="Visit Apple developer forums">Developer Forums</a> — Ask questions and connect with Apple engineers</li>
+        <li><a href="https://apple.co/DeveloperApp" aria-label="Download the Apple Developer app">Apple Developer app</a> — Watch sessions and access documentation on iPhone, iPad, or Apple TV</li>
+        <li><a href="https://apple.co/Explore-WWDC26" aria-label="Explore the full WWDC26 overview">WWDC26 overview</a> — Everything from the week in one place</li>
+        <li><a href="https://www.apple.com/os/" aria-label="Explore the OS 27 overview and compatible devices for each platform">OS 27 overview</a> — iOS 27, iPadOS 27, macOS 27, watchOS 27, and visionOS 27 coming this fall — be sure to check compatible device lists for each platform</li>
+      </ul>
+      <a href="#top" class="back-to-top" aria-label="Back to top of newsletter" style="color:#6e6e73;">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+    <hr aria-hidden="true">
+
+    <!-- ═══════════════════════════════════════ CONTACT -->
+    <div class="section" style="background-color:#fafafa;">
+      <p class="label">Contact</p>
+      <p style="margin:0 0 2px;"><strong>Tim David</strong></p>
+      <p style="margin:0;"><a href="mailto:td@apple.com">td@apple.com</a></p>
+    </div>
+
+  </div><!-- end .container -->
+
+  <!-- ═══════════════════════ SITE FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer-inner">
+      <p><a href="index.html">Newsletter Archive</a> &nbsp;·&nbsp; <a href="new-to-mac.html">New to Mac?</a></p>
+      <p>Maintained by <a href="mailto:td@apple.com">Tim David</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
