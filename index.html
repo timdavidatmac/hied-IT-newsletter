@@ -73,7 +73,7 @@
     </ul>
 
     <p class="text-muted text-small" style="margin:32px 0 0;">
-      To receive future editions directly, <a href="mailto:td@apple.com?subject=Higher%20Education%20IT%20Newsletter%20Subscribe&body=Please%20add%20me%20to%20your%20Higher%20Education%20IT%20Newsletter">get in touch</a>.
+      To receive future editions directly, contact <a href="#" class="js-mailto" data-user="=QGd" data-domain="t92YuUGbwBXY" data-params="subject=Add%20me%20to%20Apple%20Higher%20Education%20IT%20Newsletter&body=Please%20add%20me%20to%20the%20Apple%20Higher%20Education%20IT%20Newsletter" aria-label="Email Tim David to be added to the newsletter">Tim David</a>.
     </p>
 
     <!-- New to Mac callout -->
@@ -90,9 +90,28 @@
   <footer class="site-footer" role="contentinfo">
     <div class="site-footer-inner">
       <p><a href="index.html" aria-current="page">Newsletter Archive</a> &nbsp;·&nbsp; <a href="new-to-mac.html">New to Mac?</a></p>
-      <p>Maintained by <a href="mailto:td@apple.com">Tim David</a></p>
+      <p>Maintained by <a href="#" class="js-mailto" data-user="=QGd" data-domain="t92YuUGbwBXY" aria-label="Email Tim David">Tim David</a></p>
     </div>
   </footer>
+
+  <!-- Email obfuscation: reconstructs mailto: links at runtime from base64-encoded, reversed parts. -->
+  <script>
+  (function () {
+    function decode(str) {
+      return atob(str.split('').reverse().join(''));
+    }
+    var links = document.querySelectorAll('.js-mailto');
+    for (var i = 0; i < links.length; i++) {
+      var el = links[i];
+      var user = decode(el.getAttribute('data-user'));
+      var domain = decode(el.getAttribute('data-domain'));
+      var params = el.getAttribute('data-params');
+      var href = 'mailto:' + user + '@' + domain;
+      if (params) { href += '?' + params; }
+      el.setAttribute('href', href);
+    }
+  })();
+  </script>
 
 </body>
 </html>

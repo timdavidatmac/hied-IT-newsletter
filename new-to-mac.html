@@ -224,7 +224,7 @@
     </div>
 
     <p class="text-muted text-small" style="margin:48px 0 0; padding-top:24px; border-top:1px solid #f0f0f0;">
-      Have a suggestion for this page? <a href="mailto:td@apple.com?subject=New%20to%20Mac%20page%20suggestion">Get in touch</a>.
+      Have a suggestion for this page? <a href="#" class="js-mailto" data-user="=QGd" data-domain="t92YuUGbwBXY" data-params="subject=New%20to%20Mac%20page%20suggestion" aria-label="Email Tim David a suggestion for this page">Tim David</a>.
     </p>
 
   </main>
@@ -233,9 +233,28 @@
   <footer class="site-footer" role="contentinfo">
     <div class="site-footer-inner">
       <p><a href="index.html">Newsletter Archive</a> &nbsp;·&nbsp; <a href="new-to-mac.html" aria-current="page">New to Mac?</a></p>
-      <p>Maintained by <a href="mailto:td@apple.com">Tim David</a></p>
+      <p>Maintained by <a href="#" class="js-mailto" data-user="=QGd" data-domain="t92YuUGbwBXY" aria-label="Email Tim David">Tim David</a></p>
     </div>
   </footer>
+
+  <!-- Email obfuscation: reconstructs mailto: links at runtime from base64-encoded, reversed parts. -->
+  <script>
+  (function () {
+    function decode(str) {
+      return atob(str.split('').reverse().join(''));
+    }
+    var links = document.querySelectorAll('.js-mailto');
+    for (var i = 0; i < links.length; i++) {
+      var el = links[i];
+      var user = decode(el.getAttribute('data-user'));
+      var domain = decode(el.getAttribute('data-domain'));
+      var params = el.getAttribute('data-params');
+      var href = 'mailto:' + user + '@' + domain;
+      if (params) { href += '?' + params; }
+      el.setAttribute('href', href);
+    }
+  })();
+  </script>
 
 </body>
 </html>
